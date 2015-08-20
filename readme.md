@@ -6,7 +6,7 @@ Peon is a tool to manage the data pipeline of a game. Some features:
 - Simple JSON configuration of builders.
 - Can watch directory for changes.
 
-This tool is a variant of the build pipeline used by Ironclad Games and was used in two shipped games.
+This tool is based on the build pipeline used by Ironclad Games.
 
 How does peon work?
 -----------
