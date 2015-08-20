@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{236fd301-edd7-4b85-90c4-55196aa9a77e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\peon">
+      <UniqueIdentifier>{10e18f7b-67a7-451b-ad2e-cd18a1d01121}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bulkbuild">
+      <UniqueIdentifier>{59fbc118-d449-464f-847d-b2cc22cbaf74}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\peon\builders">
+      <UniqueIdentifier>{f0329d2b-0a1f-4fa9-aba0-df5053d013d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\peon\memory">
+      <UniqueIdentifier>{3e855435-ee84-488d-8d0c-ca2fdfe4a1ba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\peon\peon.h">
+      <Filter>src\peon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\builders\copy_builder.h">
+      <Filter>src\peon\builders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\builders\exec_builder.h">
+      <Filter>src\peon\builders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\peon_settings.h">
+      <Filter>src\peon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\peon_watcher.h">
+      <Filter>src\peon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\memory\memory_compare_result.h">
+      <Filter>src\peon\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\memory\memory_registry.h">
+      <Filter>src\peon\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\memory\memory.h">
+      <Filter>src\peon\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\builders\builder_type.h">
+      <Filter>src\peon\builders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\builders\builder.h">
+      <Filter>src\peon\builders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\builders\builder_factory.h">
+      <Filter>src\peon\builders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\peon\builders\dependency_file_builder.h">
+      <Filter>src\peon\builders</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\peon\peon.cpp">
+      <Filter>src\peon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\bulkbuild\_bulkbuild_peon.cpp">
+      <Filter>bulkbuild</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\builders\copy_builder.cpp">
+      <Filter>src\peon\builders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\builders\exec_builder.cpp">
+      <Filter>src\peon\builders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\peon_settings.cpp">
+      <Filter>src\peon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\peon_watcher.cpp">
+      <Filter>src\peon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\memory\memory_compare_result.cpp">
+      <Filter>src\peon\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\memory\memory_registry.cpp">
+      <Filter>src\peon\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\memory\memory.cpp">
+      <Filter>src\peon\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\builders\builder_type.cpp">
+      <Filter>src\peon\builders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\builders\builder_factory.cpp">
+      <Filter>src\peon\builders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\builders\dependency_file_builder.cpp">
+      <Filter>src\peon\builders</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\readme.md" />
+  </ItemGroup>
+</Project>

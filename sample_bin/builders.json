@@ -1,0 +1,10 @@
+[
+	{
+		"type": "EXEC",
+		"src_extension" : ".fx",
+		"dst_folder" : "shaders",
+		"dst_extension" : ".fxo",
+		"exe_path": "fxc.exe",
+		"exe_arguments_format": ""
+	}
+]
