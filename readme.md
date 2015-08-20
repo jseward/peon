@@ -8,9 +8,3 @@ builders
 	]	
 	dst : "shaders"
 	
-
-	http://www.codeproject.com/Articles/1842/A-newbie-s-elementary-guide-to-spawning-processes
-
-
-todo
-----
