@@ -6,6 +6,12 @@ Peon is a tool to manage the data pipeline of a game. Some features:
 - Simple JSON configuration of builders.
 - Can watch directory for changes.
 
+This tool is a variant of the build pipeline used by Ironclad Games and was used in two shipped games.
+
+How does peon work?
+-----------
+- peon uses the file extension to figure out how to build the file.
+
 How build exe?
 -----------
 - git clone https://github.com/jseward/peon.git
@@ -21,51 +27,53 @@ How to use exe?
 
 ex. settings.json
 
-{
-	"src_root" : "../../data",
-	"dst_root" : "../../bin/mygame"
-}
-
+	{
+		"src_root" : "../../data",
+		"dst_root" : "../../bin/mygame"
+	}
+	
 ex. builders.json
 
-[
-  {
-    "type": "EXEC",
-    "src_extension": ".fx",
-    "dst_folder": "shaders",
-    "dst_extension": ".fxo",
-    "exe_path": "./.exe/fxc/fxc.exe",
-    "exe_arguments_format": "/nologo /Tfx_2_0 /O3 /Gpp /Fo{1} {0}"
-  },
-  {
-    "type": "DEPENDENCY_FILE",
-    "src_extension": ".fxh",
-    "dependent_extensions": [
-      ".fx",
-      ".fxh"
-    ]
-  },
-  {
-    "type": "COPY",
-    "src_extension": ".font",
-    "dst_folder": "fonts"
-  }
-]
-
-- every possible data file type requires a custom file extension for peon to determine what builder to use.
-
+	[
+	  {
+	    "type": "EXEC",
+	    "src_extension": ".fx",
+	    "dst_folder": "shaders",
+	    "dst_extension": ".fxo",
+	    "exe_path": "./.exe/fxc/fxc.exe",
+	    "exe_arguments_format": "/nologo /Tfx_2_0 /O3 /Gpp /Fo{1} {0}"
+	  },
+	  {
+	    "type": "DEPENDENCY_FILE",
+	    "src_extension": ".fxh",
+	    "dependent_extensions": [
+	      ".fx",
+	      ".fxh"
+	    ]
+	  },
+	  {
+	    "type": "COPY",
+	    "src_extension": ".font",
+	    "dst_folder": "fonts"
+	  }
+	]
+	
 builders
---------
-	EXEC
-	----
-		execute a command line app to build the file
+===
+EXEC
+----
+execute a command line app to build the file
 
-	DEPENDENCY_FILE
-	----
-		not actually built but will cause other files to be built if changed (ex. .fxh - header files for d3d9 shaders)
+DEPENDENCY_FILE
+----
+not actually built but will cause other files to be built if changed (ex. .fxh - header files for d3d9 shaders)
 
-	COPY
-	----
-		simply copy the file
+COPY
+----
+simply copy the file
+
+todo
+----
+- build folder support (ex. zip up a group of files)
 
 
