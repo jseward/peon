@@ -7,7 +7,7 @@
 #include "solar/json/json_document.h"
 #include "solar/utility/trace.h"
 #include "solar/utility/alert.h"
-#include "solar/utility/container_helpers.h"
+#include "solar/containers/container_helpers.h"
 
 namespace solar {
 

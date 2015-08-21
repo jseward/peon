@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include <tchar.h>
-#include "solar/engines/win32_cli_engine.h"
+#include "solar_engines/win32_cli_engine.h"
 #include "solar/utility/trace.h"
 #include "solar/utility/command_line_parser.h"
 #include "solar/io/file_path_helpers.h"
