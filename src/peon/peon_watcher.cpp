@@ -18,19 +18,19 @@ namespace solar {
 	}
 
 	void peon_watcher::begin_watching() {
-		_directory_change_watcher.begin_watching_directory(_peon.get_settings().get_src_root(), true);
-
 		_should_exit_change_handler_thread = false;
 		_change_handler_thread = std::make_unique<std::thread>(&peon_watcher::handle_changes_in_thread, this);
+
+		_directory_change_watcher.begin_watching_directory(_peon.get_settings().get_src_root(), true);
 	}
 
 	void peon_watcher::end_watching() {
-		_directory_change_watcher.end_watching_directory();
-
 		if (_change_handler_thread != nullptr) {
 			_should_exit_change_handler_thread = true;
 			_change_handler_thread->join();
 			_change_handler_thread.release();
+
+			_directory_change_watcher.end_watching_directory(_peon.get_settings().get_src_root());
 		}
 	}
 
