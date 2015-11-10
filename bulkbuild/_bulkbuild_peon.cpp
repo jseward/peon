@@ -9,3 +9,4 @@
 #include "peon/builders/copy_builder.cpp"
 #include "peon/builders/exec_builder.cpp"
 #include "peon/builders/dependency_file_builder.cpp"
+#include "peon/builders/build_config_file_builder.cpp"

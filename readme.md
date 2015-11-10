@@ -44,6 +44,15 @@ ex. builders.json
 	    "exe_arguments_format": "/nologo /Tfx_2_0 /O3 /Gpp /Fo{1} {0}"
 	  },
 	  {
+	    "type": "EXEC",
+	    "src_extension": ".tga",
+		"src_has_peon_customization": true,
+	    "dst_folder": "textures",
+	    "dst_extension": ".dds",
+	    "exe_path": "./.exe/nvdxt/nvdxt.exe",
+	    "exe_arguments_format": "-file {0} -output {1} {2}"
+	  },
+	  {
 	    "type": "DEPENDENCY_FILE",
 	    "src_extension": ".fxh",
 	    "dependent_extensions": [
@@ -63,6 +72,8 @@ builders
 EXEC
 ----
 execute a command line app to build the file
+
+If a side-by-side file with the same name, but with the extension .peon is found then it will be inserted into exe_arguments_format. This allows for per-file customization of how the file is built. (ex. .dds compression settings).
 
 DEPENDENCY_FILE
 ----

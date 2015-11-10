@@ -54,6 +54,9 @@
     <ClInclude Include="..\..\src\peon\builders\dependency_file_builder.h">
       <Filter>src\peon\builders</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\peon\builders\build_config_file_builder.h">
+      <Filter>src\peon\builders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\peon\peon.cpp">
@@ -90,6 +93,9 @@
       <Filter>src\peon\builders</Filter>
     </ClCompile>
     <ClCompile Include="..\..\src\peon\builders\dependency_file_builder.cpp">
+      <Filter>src\peon\builders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\peon\builders\build_config_file_builder.cpp">
       <Filter>src\peon\builders</Filter>
     </ClCompile>
   </ItemGroup>

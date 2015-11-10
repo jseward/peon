@@ -4,28 +4,24 @@
 
 namespace solar {
 
-	class exe_runner;
 	class file_system;
 
-	//this builder will run a command line executable to build
+	//this builder handles files that contain configuration options for building side-by-side files.
+	//
+	//ex. button.tga has dds compression configuration in button.peon.
 
-	class exec_builder : public builder {
+	class build_config_file_builder : public builder {
 	private:
 		file_system& _file_system;
-		exe_runner& _exe_runner;
 
 		std::string _src_extension;
-		std::string _src_build_config_extension;
-		std::string _dst_folder;
-		std::string _dst_extension;
-		std::string _exe_path;
-		std::string _exe_arguments_format;
+		std::string _config_target_extension;
 
 		mutable std::unique_ptr<checksum> _checksum;
 
 	public:
-		exec_builder(file_system& file_system, exe_runner& exe_runner);
-		exec_builder(file_system& file_system, exe_runner& exe_runner, json_object& object);
+		build_config_file_builder(file_system& file_system);
+		build_config_file_builder(file_system& file_system, json_object& object);
 		virtual std::string to_string() const override;
 		virtual std::unique_ptr<builder> clone(json_object& object) override;
 		virtual std::string get_src_extension() override;
@@ -34,7 +30,7 @@ namespace solar {
 
 	private:
 		checksum get_checksum() const;
-		bool run_exe(const std::string& src_path, const std::string& dst_path, const char* reason);
+		bool build_config_target_file(peon& peon, const std::string& src_path, const char* reason);
 	};
 
 }

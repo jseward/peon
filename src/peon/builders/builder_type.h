@@ -8,6 +8,7 @@ namespace solar {
 		COPY,
 		EXEC,
 		DEPENDENCY_FILE,
+		BUILD_CONFIG_FILE,
 		
 		count
 	};

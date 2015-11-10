@@ -8,6 +8,7 @@ namespace solar {
 			RETURN_ENUM_STRING(builder_type, COPY);
 			RETURN_ENUM_STRING(builder_type, EXEC);
 			RETURN_ENUM_STRING(builder_type, DEPENDENCY_FILE);
+			RETURN_ENUM_STRING(builder_type, BUILD_CONFIG_FILE);
 			END_ENUM_STRINGS(e);
 		}
 	}

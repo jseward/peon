@@ -3,6 +3,8 @@
 #include "solar/strings/string_build.h"
 #include "solar/io/file_path_helpers.h"
 #include "solar/io/file_system.h"
+#include "solar/io/file_stream_ptr.h"
+#include "solar/io/text_reader.h"
 #include "solar/utility/exe_runner.h"
 #include "solar/utility/alert.h"
 #include "solar/utility/verify.h"
@@ -21,6 +23,7 @@ namespace solar {
 		, _exe_runner(exe_runner) {
 
 		_src_extension = object.get_string("src_extension");
+		object.try_get_string(_src_build_config_extension, "src_build_config_extension");
 		_dst_folder = object.get_string("dst_folder");
 		_dst_extension = object.get_string("dst_extension");
 		_exe_path = object.get_string("exe_path");
@@ -28,7 +31,7 @@ namespace solar {
 	}
 
 	std::string exec_builder::to_string() const {
-		return build_string("{{ type:EXEC , exe_path:'{}' , exe_arguments_format:'{}' }}", _exe_path, _exe_arguments_format);
+		return build_string("{{ type:EXEC , exe_path:'{}' , exe_arguments_format:'{}' , config:'{}' }}", _exe_path, _exe_arguments_format, _src_build_config_extension);
 	}
 
 	checksum exec_builder::get_checksum() const {
@@ -38,6 +41,7 @@ namespace solar {
 
 			_checksum = std::make_unique<checksum>(checksum()
 				.add_string(_src_extension)
+				.add_string(_src_build_config_extension)
 				.add_string(_dst_folder)
 				.add_string(_dst_extension)
 				.add_string(_exe_path)
@@ -84,7 +88,19 @@ namespace solar {
 	}
 
 	bool exec_builder::run_exe(const std::string& src_path, const std::string& dst_path, const char* reason) {
-		auto exe_args = build_string(_exe_arguments_format.c_str(), src_path, dst_path);
+		std::string customization;
+		if (!_src_build_config_extension.empty()) {
+			auto peon_file_path = change_file_path_extension(src_path, _src_build_config_extension);
+			if (_file_system.does_file_exist(peon_file_path)) {
+				auto peon_fs = make_file_stream_ptr(_file_system, peon_file_path, file_mode::OPEN_READ);
+				if (peon_fs != nullptr) {
+					text_reader reader(peon_fs.get());
+					reader.read_line(customization);
+				}
+			}
+		}
+		
+		auto exe_args = build_string(_exe_arguments_format.c_str(), src_path, dst_path, customization);
 		TRACE("[{}] {} {}", reason, _exe_path, exe_args);
 
 		auto result = _exe_runner.run_exe(_exe_path, exe_args);

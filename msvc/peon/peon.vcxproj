@@ -74,6 +74,7 @@
     <ClInclude Include="..\..\src\peon\builders\builder.h" />
     <ClInclude Include="..\..\src\peon\builders\builder_factory.h" />
     <ClInclude Include="..\..\src\peon\builders\builder_type.h" />
+    <ClInclude Include="..\..\src\peon\builders\build_config_file_builder.h" />
     <ClInclude Include="..\..\src\peon\builders\copy_builder.h" />
     <ClInclude Include="..\..\src\peon\builders\exec_builder.h" />
     <ClInclude Include="..\..\src\peon\builders\dependency_file_builder.h" />
@@ -91,6 +92,7 @@
     </ClCompile>
     <ClCompile Include="..\..\src\peon\builders\builder_factory.cpp" />
     <ClCompile Include="..\..\src\peon\builders\builder_type.cpp" />
+    <ClCompile Include="..\..\src\peon\builders\build_config_file_builder.cpp" />
     <ClCompile Include="..\..\src\peon\builders\copy_builder.cpp" />
     <ClCompile Include="..\..\src\peon\builders\exec_builder.cpp" />
     <ClCompile Include="..\..\src\peon\builders\dependency_file_builder.cpp" />

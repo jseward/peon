@@ -6,6 +6,7 @@
 #include "copy_builder.h"
 #include "exec_builder.h"
 #include "dependency_file_builder.h"
+#include "build_config_file_builder.h"
 
 namespace solar {
 
@@ -13,6 +14,7 @@ namespace solar {
 		_builder_templates[builder_type::COPY] = std::make_unique<copy_builder>(file_system);
 		_builder_templates[builder_type::EXEC] = std::make_unique<exec_builder>(file_system, exe_runner);
 		_builder_templates[builder_type::DEPENDENCY_FILE] = std::make_unique<dependency_file_builder>(file_system);
+		_builder_templates[builder_type::BUILD_CONFIG_FILE] = std::make_unique<build_config_file_builder>(file_system);
 	}
 
 	std::unique_ptr<builder> builder_factory::create_builder(json_object& object) const {
