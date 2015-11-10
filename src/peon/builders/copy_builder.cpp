@@ -56,7 +56,7 @@ namespace solar {
 		else {
 			auto compare_result = peon.get_memory_registry().compare_to_memory(src_path, dst_path, get_checksum());
 			if (compare_result != memory_compare_result::NO_DIFFERENCES) {
-				did_build_file = copy_file(src_path, dst_path, memory_compare_result_details::get_string(compare_result));
+				did_build_file = copy_file(src_path, dst_path, solar::to_string(compare_result));
 			}
 		}
 

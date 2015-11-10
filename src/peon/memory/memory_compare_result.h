@@ -19,11 +19,7 @@ namespace solar {
 		count
 	};
 
-	std::ostream& operator<<(std::ostream& os, memory_compare_result e);
-
-	class memory_compare_result_details {
-	public:
-		static const char* get_string(memory_compare_result e);
-	};
+	extern const char* to_string(memory_compare_result e);
+	extern std::ostream& operator<<(std::ostream& os, memory_compare_result e);
 
 }

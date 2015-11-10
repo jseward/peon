@@ -16,11 +16,11 @@ namespace solar {
 	}
 
 	std::unique_ptr<builder> builder_factory::create_builder(json_object& object) const {
-		auto type = parse_enum<builder_type_details>(object.get_string("type"));
+		auto type = parse_enum<builder_type>(object.get_string("type"));
 		if (type != builder_type::invalid) {
 			auto& builder_template_iter = _builder_templates.find(type);
 			if (builder_template_iter == _builder_templates.end()) {
-				ALERT("unknown builder type : {}", builder_type_details::get_string(type));
+				ALERT("unknown builder type : {}", to_string(type));
 			}
 			else {
 				return builder_template_iter->second->clone(object);

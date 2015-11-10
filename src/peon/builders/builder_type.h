@@ -12,10 +12,6 @@ namespace solar {
 		count
 	};
 
-	class builder_type_details {
-	public:
-		typedef builder_type enum_type;
-		static const char* get_string(builder_type e);
-	};
+	extern const char* to_string(builder_type e);
 
 }
